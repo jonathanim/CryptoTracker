@@ -12,13 +12,13 @@ function App() {
   const getCoins = async () => {
     const result = await fetch("https://api.coincap.io/v2/assets?limit=20");
     let data = await result.json();
-    setCoins(data);
+    setCoins(data.data);
   };
   console.log(coins);
   return (
     <div className="App">
       <header className="App-header">
-        <DisplayList />
+        <DisplayList coins={coins} />
       </header>
     </div>
   );
