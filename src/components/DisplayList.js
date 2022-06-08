@@ -1,4 +1,5 @@
 import React from "react";
+import "../App.css";
 
 const DisplayList = ({ coins }) => {
   return (
@@ -6,20 +7,22 @@ const DisplayList = ({ coins }) => {
       <table>
         <thead>
           <tr>
-            <th>Rank</th>
-            <th>Symbol</th>
-            <th>Name</th>
-            <th>Price</th>
+            <th className="th-coins">Rank</th>
+            <th className="th-coins">Symbol</th>
+            <th className="th-coins">Name</th>
+            <th className="th-coins">Price</th>
           </tr>
         </thead>
-        <tbody>
+        <tbody className="hoverTable">
           {coins.map((coin, i) => {
             return (
-              <tr key={i}>
-                <td>{coin.rank}</td>
-                <td>{coin.symbol}</td>
-                <td>{coin.name}</td>
-                <td>{parseFloat(coin.priceUsd).toFixed(6)}</td>
+              <tr key={i} className="tr-coins">
+                <td className="td-coins">{coin.rank}</td>
+                <td className="td-coins">{coin.symbol}</td>
+                <td className="td-coins">{coin.name}</td>
+                <td className="td-coins">
+                  {parseFloat(coin.priceUsd).toFixed(6)}
+                </td>
               </tr>
             );
           })}

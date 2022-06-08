@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "./App.css";
 import DisplayList from "./components/DisplayList";
+import Header from "./components/Header";
 
 function App() {
   const [coins, setCoins] = useState([]);
@@ -17,9 +18,10 @@ function App() {
   console.log(coins);
   return (
     <div className="App">
-      <header className="App-header">
+      <Header />
+      <div className="container">
         <DisplayList coins={coins} />
-      </header>
+      </div>
     </div>
   );
 }

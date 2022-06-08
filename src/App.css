@@ -1,0 +1,51 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.app {
+  max-width: 100%;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+table {
+  width: 80vw;
+  margin-top: 50px;
+  border: 1px solid black;
+  padding: 20px 20px;
+}
+
+.td-coins {
+  text-align: center;
+  padding: 1.5rem;
+  border: 2px solid black;
+}
+
+th.th-coins {
+  font-size: 1.6rem;
+  font-weight: bold;
+  padding: 20px 12px;
+}
+
+.hoverTable {
+  width: 100%;
+  border-collapse: collapse;
+}
+.hoverTable td {
+  padding: 7px;
+  border: #000000 1px solid;
+}
+
+.hoverTable tr {
+  background: #b5f175;
+}
+
+.hoverTable tr:hover {
+  background-color: #7c7af7;
+}
