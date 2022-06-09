@@ -2,7 +2,7 @@ import React from "react";
 import "../App.css";
 import { Link } from "react-router-dom";
 
-const DisplayList = ({ coins, handleClick }) => {
+const DisplayList = ({ coins }) => {
   return (
     <div>
       <table>
@@ -19,12 +19,9 @@ const DisplayList = ({ coins, handleClick }) => {
             return (
               <tr key={i} className="tr-coins">
                 <td className="td-coins">{coin.rank}</td>
-                <td
-                  className="td-coins symbol-text"
-                  onClick={(e) => handleClick(e)}
-                >
+                <td className="td-coins symbol-text">
                   <Link
-                    to={`/ticker/${coin.name}`}
+                    to={`/ticker/${coin.id}`}
                     style={{ textDecoration: "none" }}
                   >
                     {coin.name} ({coin.symbol})
