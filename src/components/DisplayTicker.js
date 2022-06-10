@@ -1,9 +1,11 @@
-import React, { useState, useEffect } from "react";
-import { useParams, Link } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
+
 
 const DisplayTicker = () => {
-  const [coin, setCoin] = useState({});
 
+
+  const [coin, setCoin] = useState({});
   const param = useParams();
 
   useEffect(() => {
@@ -13,14 +15,18 @@ const DisplayTicker = () => {
   const getCoin = async () => {
     const searchCoin = param.name;
     console.log(param.name);
+    if (searchCoin !== null || undefined) {
+      const result = await fetch(
+        `https://api.coincap.io/v2/assets/${searchCoin}`
+      );
+      let data = await result.json();
+      console.log(data.data);
+      setCoin(data.data);
+    }
 
-    const result = await fetch(
-      `https://api.coincap.io/v2/assets/${searchCoin}`
-    );
-    let data = await result.json();
-    console.log(data.data);
-    setCoin(data.data);
   };
+
+
 
   return (
     <div className="container mt-5" style={{ flexDirection: "column" }}>

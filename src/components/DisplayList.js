@@ -3,6 +3,7 @@ import "../App.css";
 import { Link } from "react-router-dom";
 
 const DisplayList = ({ coins }) => {
+
   return (
     <div>
       <h1 style={{ textAlign: "center", margin: "50px 0" }}>Top 20 Crypto</h1>
