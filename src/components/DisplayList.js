@@ -13,7 +13,6 @@ const DisplayList = ({ coins, addTwenty, removeTwenty }) => {
             <tr>
               <th className="th-coins">Rank</th>
               <th className="th-coins">Name / Symbol</th>
-
               <th className="th-coins">Price / USD</th>
             </tr>
           </thead>

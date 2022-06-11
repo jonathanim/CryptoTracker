@@ -23,6 +23,7 @@ const TopFive = () => {
             {topFive.map((item, i) => {
               return (
                 <Link
+                  key={item.id}
                   to={`/ticker/${item.id}`}
                   style={{
                     textDecoration: "none",

@@ -1,31 +1,58 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import { useParams } from "react-router-dom";
 import { CenterDiv, Container } from "../GlobalStyles";
+import { BsSuitHeart } from "react-icons/bs";
+import { CoinContext } from "../context/coinContext";
 
 const DisplayTicker = () => {
   const [coin, setCoin] = useState({});
+  const { favorite, addToFavorites } = useContext(CoinContext);
+  const [inFavorite, setInFavorite] = useState(false);
   const param = useParams();
 
   useEffect(() => {
     getCoin();
   }, []);
 
+  useEffect(() => {
+    handleFavorite(favorite, coin.id);
+  });
+
   const getCoin = async () => {
     const searchCoin = param.name;
-    console.log(param.name);
+
     if (searchCoin !== null || undefined) {
       const result = await fetch(
         `https://api.coincap.io/v2/assets/${searchCoin}`
       );
       let data = await result.json();
-      console.log(data.data);
+
       setCoin(data.data);
     }
   };
 
+  const handleClick = (e) => {
+    addToFavorites(favorite, coin.id);
+  };
+
+  const handleFavorite = (currentArray, favoriteItem) => {
+    const found = currentArray.includes(favoriteItem);
+    setInFavorite(found);
+  };
+
+  console.log(favorite);
   return (
     <Container>
       <CenterDiv>
+        <div style={{ display: "flex" }}>
+          <h4 style={{ margin: "0px 20px" }}>
+            {inFavorite ? (
+              <BsSuitHeart color="red" onClick={(e) => handleClick()} />
+            ) : (
+              <BsSuitHeart color="white" onClick={(e) => handleClick()} />
+            )}
+          </h4>
+        </div>
         <h1>
           {coin.name} / {coin.symbol}
         </h1>

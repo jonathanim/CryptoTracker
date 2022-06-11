@@ -39,8 +39,26 @@ export const CoinProvider = ({ children }) => {
     setLimit(limit - 20);
   };
 
+  const addToFavorites = (favoriteArray, favoriteCoin) => {
+    let unique = favoriteArray.includes(favoriteCoin)
+      ? favoriteArray.filter((i) => i !== favoriteCoin)
+      : // remove item
+        [...favoriteArray, favoriteCoin]; // add item
+
+    setFavorite(unique);
+  };
+
   return (
-    <CoinContext.Provider value={{ coins, topFive, addTwenty, removeTwenty }}>
+    <CoinContext.Provider
+      value={{
+        coins,
+        topFive,
+        addTwenty,
+        removeTwenty,
+        addToFavorites,
+        favorite,
+      }}
+    >
       {children}
     </CoinContext.Provider>
   );
