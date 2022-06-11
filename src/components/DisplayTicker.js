@@ -1,10 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-
+import { CenterDiv, Container } from "../GlobalStyles";
 
 const DisplayTicker = () => {
-
-
   const [coin, setCoin] = useState({});
   const param = useParams();
 
@@ -23,21 +21,18 @@ const DisplayTicker = () => {
       console.log(data.data);
       setCoin(data.data);
     }
-
   };
 
-
-
   return (
-    <div className="container mt-5" style={{ flexDirection: "column" }}>
-      <div>
+    <Container>
+      <CenterDiv>
         <h1>
           {coin.name} / {coin.symbol}
         </h1>
         <h2>Ranked: {coin.rank}</h2>
         <h3>Price:${parseFloat(coin.priceUsd)}</h3>
-      </div>
-      <div>
+      </CenterDiv>
+      <CenterDiv>
         <h3>Market Supply:</h3>
         <p>{!coin.maxSupply ? "Unknown" : coin.maxSupply}</p>
         <h3>Market Cap:</h3>
@@ -46,16 +41,16 @@ const DisplayTicker = () => {
         <p>{coin.supply}</p>
         <h3>24 hour Volume:</h3>
         <p>{coin.volumeUsd24Hr}</p>
-      </div>
+      </CenterDiv>
 
-      <div>
+      <CenterDiv>
         <h3>
           <a href={coin.explorer} target="_blank" rel="noreferrer">
             More Info
           </a>
         </h3>
-      </div>
-    </div>
+      </CenterDiv>
+    </Container>
   );
 };
 
