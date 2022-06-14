@@ -18,7 +18,7 @@ const TopFive = () => {
     <Container>
       <CenterDiv>
         <SmallWrapper>
-          <h1>Top Five</h1>
+          <h1>{`TOP FIVE CRYPTO`}</h1>
           <ul style={{ listStyleType: "none" }}>
             {topFive.map((item, i) => {
               return (

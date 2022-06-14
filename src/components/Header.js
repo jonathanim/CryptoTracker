@@ -11,35 +11,38 @@ const Nav = styled.div`
   justify-content: center;
   align-items: center;
   font-size: 20px;
-  background-color: white;
-  border: 2px solid black;
+  background-color: black;
+  color: #8832ff;
 `;
+
+const StyledH3 = styled.span`
+  font-weight: bold;
+  text-shadow: 1px 1px black;
+  color: #8832ff;
+  font-size: 3rem;
+  padding: 0 20px;
+  transition: 0.7s ease-in-out;
+  border: 2px solid #8832ff;
+  margin: 30px;
+  &:hover {
+    color: white;
+    border: 2px solid white;
+    border-radius: 15px;
+  }
+`;
+
+const StyledLink = styled(Link)``;
 
 const Header = () => {
   return (
     <Nav>
-      <Link
-        to="/"
-        style={{
-          textDecoration: "none",
-          padding: "20px 20px",
-          fontWeight: "bold",
-          color: "black",
-        }}
-      >
-        All
-      </Link>
-      <Link
-        to="/favorites"
-        style={{
-          textDecoration: "none",
-          padding: "20px 20px",
-          fontWeight: "bold",
-          color: "black",
-        }}
-      >
-        Favorites
-      </Link>
+      <StyledLink to="/" style={{ textDecoration: "none" }}>
+        <StyledH3>All</StyledH3>
+      </StyledLink>
+
+      <StyledLink to="/favorites" style={{ textDecoration: "none" }}>
+        <StyledH3>favorites</StyledH3>
+      </StyledLink>
     </Nav>
   );
 };

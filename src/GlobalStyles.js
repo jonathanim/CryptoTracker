@@ -36,9 +36,12 @@ table {
   margin: auto 50px;
 }
 
-
+.li-hover{
+  transition:.4s ease-in-out;
+}
 .li-hover:hover {
-  color: white;
+  color: lime;
+  font-weight:bold;
   background-color: "#8832ff"
 }
 .td-coins {
@@ -82,6 +85,7 @@ th.th-coins {
   cursor: pointer;
 }
 
+
 `;
 
 export default GlobalStyles;
@@ -94,11 +98,20 @@ export const CenterDiv = styled.div`
   margin: 20px auto;
 `;
 
+export const FlexDiv = styled.div`
+  max-width: 80%;
+  display: flex;
+  flex-wrap: wrap;
+  flex-grow: 1;
+  justify-content: space-between;
+  align-items: center;
+`;
+
 export const Container = styled.div`
   margin: 0 auto;
   padding: 0 50px;
   max-width: 1300px;
-  width: 100%;
+  width: 90%;
 
   @media (max-width: 400px) {
     padding: 0 10px;

@@ -1,21 +1,22 @@
 import React, { useContext } from "react";
 import { CoinContext } from "../context/coinContext";
-import { Link } from "react-router-dom";
+
+import { CenterDiv, Container, FlexDiv } from "../GlobalStyles";
+import Card from "./Card";
 const Favorites = () => {
   const { favorite } = useContext(CoinContext);
 
+  console.log(favorite);
   return (
-    <div>
-      <ul>
-        {favorite.map((favItem) => {
-          return (
-            <li key={favItem}>
-              <Link to={`/ticker/${favItem}`}>{favItem}</Link>
-            </li>
-          );
-        })}
-      </ul>
-    </div>
+    <Container>
+      <CenterDiv>
+        <FlexDiv>
+          {favorite.map((coinName, i) => {
+            return <Card key={i} coinName={coinName}></Card>;
+          })}
+        </FlexDiv>
+      </CenterDiv>
+    </Container>
   );
 };
 
